@@ -1,8 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../Hook/UseAuth';
 import './Navbar.css'
 
+
+
 const Navbar = () => {
+
+    const {user, googleSignOut} = useAuth();
+
+    
     return (
         <>
 
@@ -18,12 +25,16 @@ const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav ms-auto  ">
-                            <Link className="nav-link items fw-bold" > Home </Link>
+                            
+                            
+                            <Link to='/home' className="nav-link items fw-bold" > Home </Link>
                             <Link className="nav-link items fw-bold" > About </Link>
-                            <Link className="nav-link items fw-bold" > Services </Link>
+                            <Link to="/services" className="nav-link items fw-bold" > Services </Link>
                             <Link className="nav-link items fw-bold" > Appointment </Link>
                             <Link className="nav-link items fw-bold" > Doctors </Link>
                             <Link className="nav-link items fw-bold" > Contact Us </Link>
+                            <span className='m-2 text-danger fw-bold'> {user.displayName}</span>
+                           {user.email ? <button className='m-2 btn btn-primary' onClick={googleSignOut}>Log Out</button> : <Link to="/login" className="nav-link items fw-bold" > Login </Link> }
                 
                         </div>
                     </div>

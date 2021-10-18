@@ -1,25 +1,44 @@
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import Banner from './Component/Home/Banner/Banner';
 
-import Navbar from './Component/Shared/Navbar/Navbar';
+import Home from './Component/Home/Home/Home';
+import Services from './Component/Home/Services/Services';
+
+import Login from './Component/Shared/Login/Login';
+import AuthProvider from './Context/AuthProvider';
+
+
+
 
 
 function App() {
   return (
     <div className="App">
 
-      <BrowserRouter>
-       <Switch>
-        <Route>
-          <Navbar></Navbar>
-          <Banner></Banner>
-        </Route>
+       <AuthProvider>
+         
+          <BrowserRouter>
+            <Switch>
+              <Route exact path='/'>
+               <Home></Home>
+              </Route>
+              <Route path='/home'>
+                <Home></Home>
+              </Route>
+              <Route path='/login'>
+                <Login></Login>
+              </Route>
+              <Route path='/services'>
+                <Services></Services>
+              </Route>
 
-       </Switch>
+            </Switch>
       
-      </BrowserRouter>
+          </BrowserRouter>
+         
+        </AuthProvider> 
+      
        
      
     </div>
