@@ -1,9 +1,9 @@
 # MedService
 
-Welcome to MedService [MedService.com]( https://medservice-dbaa5.web.app), what we do? (Yeah, definitely it’s about Caring).
+Welcome to MedService [MedService.com]( https://medservice-dbaa5.firebaseapp.com/), what we do? (Yeah, definitely it’s about Caring).
 
-This is our clinic to deliver you the best possible treatment
+1.This is our clinic to deliver you the best possible treatment
 
-We've professional highly trainer doctors to give you the best treatment
+2. We've professional highly trainer doctors to give you the best treatment
 
-Our extraordinary laboratory and diagnostic facility will ensure that you always get the best treatment 
+3. Our extraordinary laboratory and diagnostic facility will ensure that you always get the best treatment 
