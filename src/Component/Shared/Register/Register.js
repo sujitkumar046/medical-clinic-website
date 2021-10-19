@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import useAuth from '../../../Hook/UseAuth';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';

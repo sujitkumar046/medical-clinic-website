@@ -8,7 +8,7 @@ intialAuthetication();
 const Usefirebase = () => {
 
     
-
+   
     const [user, Setuser] = useState({})
     const [error, Seterror] = useState ('')
     const [email, Setemail]= useState('')
@@ -45,7 +45,7 @@ const Usefirebase = () => {
               
             }
           });
-    }, [])
+    }, [auth])
 
   const handleNameChange = (e) => {
     Setname (e.target.value)
@@ -92,7 +92,7 @@ const Usefirebase = () => {
       e.preventDefault()
       signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        Setuser (result.user);
+       Setuser (result.user);
 
       })
      
@@ -100,7 +100,7 @@ const Usefirebase = () => {
     }
 
     return {
-        user, SignInUsingGoogle, error, googleSignOut, RegisterUsingEmailPassword, handleEmailChange, handlePasswordChange, loginUsingEmailPassword, handleNameChange
+        user, SignInUsingGoogle, error, googleSignOut, RegisterUsingEmailPassword, handleEmailChange, handlePasswordChange, loginUsingEmailPassword, handleNameChange, email, password
     }
  
     

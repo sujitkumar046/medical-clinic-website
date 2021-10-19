@@ -7,7 +7,7 @@ import './Navbar.css'
 
 const Navbar = () => {
 
-    const {user, googleSignOut, loginUsingEmailPassword } = useAuth();
+    const {user, googleSignOut } = useAuth();
 
     
     return (

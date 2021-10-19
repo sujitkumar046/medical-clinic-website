@@ -9,21 +9,32 @@ const Login = () => {
     
 
     
-    const {SignInUsingGoogle,handleEmailChange, handlePasswordChange, loginUsingEmailPassword } = useAuth();
+    const {SignInUsingGoogle,handleEmailChange, handlePasswordChange, loginUsingEmailPassword} = useAuth();
     const location = useLocation();
     const history = useHistory();
+   
     
 
 
     const redirect_URL = location.state?.from || './home' ;
+   
 
     const handleSignIn = () => {
+        
         SignInUsingGoogle()
             .then (result => {
             history.push (redirect_URL);
         })
     }
 
+
+    // const HandleSignInEmailPassword = () => {
+
+    //     loginUsingEmailPassword (email, password)
+    //     .then (result => {
+    //         HisTory.push (redirectURL);
+    //     })
+    // }
    
 
   
