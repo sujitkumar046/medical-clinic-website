@@ -37,7 +37,7 @@ const Login = () => {
 
         <>
         <Navbar></Navbar>
-        <div className='row container m-5 border p-5'>
+        <div className='row col-lg-11 col-md-11 col-sm-12 container-fluid ms-3 border '>
             <h3 className='text success'>Please login</h3>
             <br />
             <div>

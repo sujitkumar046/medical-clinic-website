@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Usedata from '../../../Hook/Usedata';
-import Footer from '../../Shared/Footer/Footer';
-import Navbar from '../../Shared/Navbar/Navbar';
+import Usedata from '../../../Hook/Usedata'
 import './Services.css'
 
 const Services = () => {
