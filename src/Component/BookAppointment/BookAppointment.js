@@ -9,7 +9,7 @@ const BookAppointment = () => {
                <Navbar></Navbar>
             </div>
 
-            <div className='container text-start row'>
+            <div className='container text-start row m-2'>
 
                 <h1 className='border-bottom mb-2'>
                 Book Appointment

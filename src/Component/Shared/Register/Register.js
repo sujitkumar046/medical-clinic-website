@@ -12,19 +12,6 @@ const Register = () => {
 
     const {SignInUsingGoogle, handleEmailChange, handlePasswordChange, RegisterUsingEmailPassword, error, handleNameChange} = useAuth();
 
-    // const location = useLocation();
-    // const history = useHistory();
-
-    // const redirectURL = location.state?.from || './home' ;
-
-    // const handleRegister = () => {
-       
-    //     RegisterUsingEmailPassword()
-    //         .then (result => {
-    //         history.push (redirectURL);
-    //     })
-    // }
-
 
 
     return (

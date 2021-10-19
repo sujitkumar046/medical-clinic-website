@@ -14,7 +14,7 @@ const Navbar = () => {
         <>
 
             <nav className="navbar navbar-expand-lg navbar-light bg-white ">
-                <div className="container-fluid">
+                <div className="container-fluid m-2">
                     <Link to='/home' className="navbar-brand">
 
                         <img height='50px' width='200px' className='img-fluid' src="https://jthemes.net/themes/html/medservices/files/images/footer-logo.png" alt=""  class="d-inline-block align-text-top"/>

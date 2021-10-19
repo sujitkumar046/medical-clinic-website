@@ -9,11 +9,12 @@ const Usefirebase = () => {
 
     
    
-    const [user, Setuser] = useState({})
-    const [error, Seterror] = useState ('')
+    const [user, Setuser] = useState({});
+    const [error, Seterror] = useState ('');
     const [email, Setemail]= useState('')
     const [password, Setpassword] = useState ('')
     const [name, Setname] = useState('')
+    const [isLoading, SetisLoading] = useState(true)
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
@@ -21,18 +22,25 @@ const Usefirebase = () => {
 
     const SignInUsingGoogle = () => {
 
+      SetisLoading (true)
+
       return signInWithPopup(auth, googleProvider)
+
+      .finally (() => {SetisLoading(false)})
        
     }
 
     const googleSignOut = () => {
+       SetisLoading(true)
         signOut(auth)
         .then(() => {
             Setuser({})
           })
           .catch((error) => {
             Seterror(error)
-          });
+          })
+           .finally(() => SetisLoading(false))
+          
     }
 
     useEffect (() => {
@@ -42,8 +50,10 @@ const Usefirebase = () => {
               Setuser(user)
             } 
             else {
+              Setuser({})
               
             }
+            SetisLoading(false)
           });
     }, [auth])
 
@@ -92,15 +102,19 @@ const Usefirebase = () => {
       e.preventDefault()
       signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-       Setuser (result.user);
-
+       Setuser (result.user)
+       Seterror('')
       })
+       .catch((error) => {
+        Seterror('Wrong password or email')
+      });
+
      
     
     }
 
     return {
-        user, SignInUsingGoogle, error, googleSignOut, RegisterUsingEmailPassword, handleEmailChange, handlePasswordChange, loginUsingEmailPassword, handleNameChange, email, password
+        user, SignInUsingGoogle, error, googleSignOut, RegisterUsingEmailPassword, handleEmailChange, handlePasswordChange, loginUsingEmailPassword, handleNameChange, email, password, isLoading
     }
  
     

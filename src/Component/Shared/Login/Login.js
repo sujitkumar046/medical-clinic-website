@@ -9,7 +9,7 @@ const Login = () => {
     
 
     
-    const {SignInUsingGoogle,handleEmailChange, handlePasswordChange, loginUsingEmailPassword} = useAuth();
+    const {SignInUsingGoogle,handleEmailChange, handlePasswordChange, loginUsingEmailPassword, error} = useAuth();
     const location = useLocation();
     const history = useHistory();
    
@@ -28,13 +28,7 @@ const Login = () => {
     }
 
 
-    // const HandleSignInEmailPassword = () => {
-
-    //     loginUsingEmailPassword (email, password)
-    //     .then (result => {
-    //         HisTory.push (redirectURL);
-    //     })
-    // }
+ 
    
 
   
@@ -54,6 +48,11 @@ const Login = () => {
                     <input onBlur={handlePasswordChange} type="password" name="" id="password" placeholder='Enter password' />
                     <br />
                     <br />
+
+                    <div className='text-danger'>
+                        <p>{error}</p>
+                        <p>{error.message}</p>
+                    </div>
                     <button className='btn btn-primary' type="submit">Submit</button> <br />
                     
                     
