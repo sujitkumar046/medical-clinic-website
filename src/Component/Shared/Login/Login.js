@@ -7,7 +7,9 @@ import Navbar from '../Navbar/Navbar';
 const Login = () => {
 
     
-    const {SignInUsingGoogle} = useAuth();
+
+    
+    const {SignInUsingGoogle,handleEmailChange, handlePasswordChange, loginUsingEmailPassword } = useAuth();
     const location = useLocation();
     const history = useHistory();
     
@@ -22,7 +24,9 @@ const Login = () => {
         })
     }
 
+   
 
+  
    
     return (
 
@@ -32,9 +36,11 @@ const Login = () => {
             <h3 className='text success'>Please login</h3>
             <br />
             <div>
-                <form>
-                    <input type="email" name="Email" id="email" placeholder='Enter Your Email' /> <br />
-                    <input type="password" name="" id="password" placeholder='Enter password' />
+                <form onSubmit={loginUsingEmailPassword}>
+                    <label className='text-primary fs-4 me-2' htmlFor="email">Email:</label>
+                    <input onBlur={handleEmailChange} type="email" name="Email" id="email" placeholder='Enter Your Email' /> <br /> 
+                    <label className='text-primary fs-4 me-2' htmlFor="password">Password:</label>
+                    <input onBlur={handlePasswordChange} type="password" name="" id="password" placeholder='Enter password' />
                     <br />
                     <br />
                     <button className='btn btn-primary' type="submit">Submit</button> <br />
