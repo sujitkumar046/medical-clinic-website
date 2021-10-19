@@ -1,6 +1,6 @@
 # MedService
 
-Welcome to MedService [MedService.com]( https://medservice-dbaa5.firebaseapp.com/), We provide best medical facility.
+Welcome to MedService [MedService.com]( https://medservice-dbaa5.web.app), We provide best medical facility.
 
   
 
