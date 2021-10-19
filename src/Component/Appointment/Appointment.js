@@ -50,7 +50,7 @@ const Appointment = () => {
         <div className='row container-fluid m-2 g-4'>
 
             <div className='col-md-4 col-lg-4 col-sm-12'>
-                <img src={singleService?.img} alt="" />
+                <img className='img-fluid' src={singleService?.img} alt="" />
 
             </div>
             <div className='col-md-5 col-lg-5 col-sm-12'>
