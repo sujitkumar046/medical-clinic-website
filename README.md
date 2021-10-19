@@ -1,6 +1,6 @@
 # MedService
 
-Welcome to MedService [Create React App]( https://medservice-dbaa5.web.app), what we do? (Yeah, definitely it’s about Caring).
+Welcome to MedService [MedService.com]( https://medservice-dbaa5.web.app), what we do? (Yeah, definitely it’s about Caring).
 
 This is our clinic to deliver you the best possible treatment
 
