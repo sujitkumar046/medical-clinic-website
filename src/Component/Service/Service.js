@@ -1,24 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Usedata from '../../../Hook/Usedata';
-import Footer from '../../Shared/Footer/Footer';
-import Navbar from '../../Shared/Navbar/Navbar';
-import './Services.css'
+import Usedata from '../../Hook/Usedata';
+import Footer from '../Shared/Footer/Footer';
+import Navbar from '../Shared/Navbar/Navbar';
+import './Service.css'
 
-const Services = () => {
+const Service = () => {
 
-
-
-    
-   const {services} =  Usedata();
-
-   
+    const {services} =  Usedata();
     return (
 
         <>
-           
 
-         <div className='row container-fluid'>
+        <Navbar></Navbar>
+            <div className='row container-fluid'>
              <h1 className='text-start border-bottom'>Our Services</h1>
            {
 
@@ -59,10 +54,11 @@ const Services = () => {
            }
          
         </div>
-        
 
-    </>
+        <Footer></Footer>
+        
+        </>
     );
 };
 
-export default Services;
+export default Service;

@@ -1,10 +1,15 @@
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import About from './Component/About/About';
 import Appointment from './Component/Appointment/Appointment';
+import BookAppointment from './Component/BookAppointment/BookAppointment';
+import Doctors from './Component/Doctors/Doctors';
 
 import Home from './Component/Home/Home/Home';
 import Services from './Component/Home/Services/Services';
+import Payment from './Component/Payment/Payment';
+import Service from './Component/Service/Service';
 
 import Login from './Component/Shared/Login/Login';
 import Notfound from './Component/Shared/Notfound/Notfound';
@@ -30,18 +35,33 @@ function App() {
               <Route path='/home'>
                 <Home></Home>
               </Route>
-              <PrivateRoute path='/appointment'>
+              <Route path='/about'>
+                <About></About>
+              </Route>
+              <Route path='/doctor'>
+                <Doctors></Doctors>
+              </Route>
+              <PrivateRoute path='/appointment/:appointmentID'>
                 <Appointment></Appointment>
               </PrivateRoute>
+              <PrivateRoute path='/bookappointment'>
+                <BookAppointment></BookAppointment>
+              </PrivateRoute>
+              <PrivateRoute path='/payment'>
+                <Payment></Payment>
+              </PrivateRoute>
+             
               <Route path='/login'>
                 <Login></Login>
               </Route>
               <Route path='/services'>
-                <Services></Services>
+                <Service></Service>
               </Route>
               <Route path='/register'>
                 <Register></Register>
               </Route>
+             
+
               <Route path='*'>
                 <Notfound></Notfound>
               </Route>
