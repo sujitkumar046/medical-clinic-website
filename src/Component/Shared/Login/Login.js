@@ -1,15 +1,23 @@
 import React from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
+import intialAuthetication from '../../../Firebase/Firebase.init';
 import useAuth from '../../../Hook/UseAuth';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
+import { GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+
+intialAuthetication();
+
+
+
+
 
 const Login = () => {
 
     
 
     
-    const {SignInUsingGoogle,handleEmailChange, handlePasswordChange, loginUsingEmailPassword, error} = useAuth();
+    const {SignInUsingGoogle,handleEmailChange, handlePasswordChange, error, email, password, loginUsingEmailPassword} = useAuth();
     const location = useLocation();
     const history = useHistory();
    
@@ -17,10 +25,25 @@ const Login = () => {
 
 
     const redirect_URL = location.state?.from || './home' ;
-   
+
+    
+    // const loginUsingEmailPassword = (e) => {
+    // e.preventDefault()
+    // signInWithEmailAndPassword(auth, email, password)
+    // .then((result) => {
+    // Setuser (result.user)
+    // Seterror('')
+    // })
+    // .catch((error) => {
+    //  Seterror('Wrong password or')
+    // })
+    // .finally (() => {
+    //     history.push (redirect_URL);
+    // }
+    
 
     const handleSignIn = () => {
-        
+
         SignInUsingGoogle()
             .then (result => {
             history.push (redirect_URL);
@@ -28,10 +51,7 @@ const Login = () => {
     }
 
 
- 
    
-
-  
    
     return (
 
@@ -62,7 +82,7 @@ const Login = () => {
 
                 <div className='m-2'>
                 <p> Don't have an account? <Link to='/register'>Create Account</Link> </p>
-                <button className='btn btn-warning' onClick={handleSignIn}>Google Sign in</button>
+                
                 </div>
 
                 
@@ -74,4 +94,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Login

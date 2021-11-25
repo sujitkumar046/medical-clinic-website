@@ -47,6 +47,7 @@ const Appointment = () => {
         <>
         
         <Navbar></Navbar>
+         <h2>Make Appointment</h2>
         <div className='row container-fluid m-2 g-4'>
 
             <div className='col-md-4 col-lg-4 col-sm-12'>

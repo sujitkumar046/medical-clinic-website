@@ -1,14 +1,17 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyDjTw9RVtVd8HoXaZ-0gQWQ4I98RvJmKTU",
-    authDomain: "medservice-dbaa5.firebaseapp.com",
-    projectId: "medservice-dbaa5",
-    storageBucket: "medservice-dbaa5.appspot.com",
-    messagingSenderId: "540893621176",
-    appId: "1:540893621176:web:f4041051117fd913217d4d"
+
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
+    
   };
   
   export default firebaseConfig
 
+  
 
 
 

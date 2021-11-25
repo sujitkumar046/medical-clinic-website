@@ -30,55 +30,35 @@ const Usefirebase = () => {
        
     }
 
-    const googleSignOut = () => {
-       SetisLoading(true)
-        signOut(auth)
-        .then(() => {
-            Setuser({})
-          })
-          .catch((error) => {
-            Seterror(error)
-          })
-           .finally(() => SetisLoading(false))
-          
+    const handleNameChange = (e) => {
+      Setname (e.target.value)
+  
     }
+  
+    const handleEmailChange = (e) => {
+           Setemail (e.target.value)
+    }
+    const handlePasswordChange = (e) => {
+           Setpassword (e.target.value)
+    }
+  
 
-    useEffect (() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-              
-              Setuser(user)
-            } 
-            else {
-              Setuser({})
-              
-            }
-            SetisLoading(false)
-          });
-    }, [auth])
-
-  const handleNameChange = (e) => {
-    Setname (e.target.value)
-
-  }
-
-  const handleEmailChange = (e) => {
-         Setemail (e.target.value)
-  }
-  const handlePasswordChange = (e) => {
-         Setpassword (e.target.value)
-  }
-
-  const setUserName = () => {
-    updateProfile(auth.currentUser, {
-      displayName: name
-    }).then(() => {
+    const loginUsingEmailPassword = (e) => {
+      e.preventDefault()
+       signInWithEmailAndPassword(auth, email, password)
+     .then((result) => {
+      Setuser (result.user)
+      Seterror('')
+      })
+     .catch((error) => {
+      Seterror('Wrong password or')
+     });
+ 
+      
      
-    })
+     }
 
-  }
-
-    const RegisterUsingEmailPassword = (e) => {
+     const RegisterUsingEmailPassword = (e) => {
       e.preventDefault()
       if (password.length <6 ) {
         Seterror ('Password Must be 6 character long')
@@ -98,23 +78,52 @@ const Usefirebase = () => {
 
     }
 
-    const loginUsingEmailPassword = (e) => {
-      e.preventDefault()
-      signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-       Setuser (result.user)
-       Seterror('')
-      })
-       .catch((error) => {
-        Seterror('Wrong password or email')
-      });
 
+
+    useEffect (() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+              
+              Setuser(user)
+            } 
+            else {
+              Setuser({})
+              
+            }
+            SetisLoading(false)
+          });
+    }, [auth])
+
+
+    const googleSignOut = () => {
+      SetisLoading(true)
+       signOut(auth)
+       .then(() => {
+           Setuser({})
+         })
+         .catch((error) => {
+           Seterror(error)
+         })
+          .finally(() => SetisLoading(false))
+         
+   }
+
+ 
+  const setUserName = () => {
+    updateProfile(auth.currentUser, {
+      displayName: name
+    }).then(() => {
      
+    })
+
+  }
+
     
-    }
+
+  
 
     return {
-        user, SignInUsingGoogle, error, googleSignOut, RegisterUsingEmailPassword, handleEmailChange, handlePasswordChange, loginUsingEmailPassword, handleNameChange, email, password, isLoading
+        user,loginUsingEmailPassword, Setuser, SignInUsingGoogle, error, googleSignOut, RegisterUsingEmailPassword, handleEmailChange, handlePasswordChange, handleNameChange, email, password, isLoading, auth, getAuth
     }
  
     
